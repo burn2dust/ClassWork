@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=List()
+comment1.params=newElement
+comment1.target=void\ enqueue(int)
+comment2.target=boolean\ isEmpty()
+comment3.target=void\ linkedInsertionSort()
+comment4.target=void\ showStructure()
+numComments=5
