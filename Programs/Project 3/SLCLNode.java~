@@ -1,0 +1,23 @@
+class SLCLNode
+{  
+   private int element;
+   private SLCLNode next;
+  
+   public SLCLNode(int newElement, SLCLNode nextval) {
+     element = newElement;  
+     next = nextval; 
+   } // end of construcor
+
+ 
+  public SLCLNode getNext() { // returns the next value
+      return next; 
+  } // end of method getNext  
+  public int getElement() { // returns the current value
+      return element; 
+  } // end of method getElement
+  public void setNext(SLCLNode nextVal) {  // sets the next value
+      next = nextVal; 
+  } // end of method setNext
+  
+  
+} // end class SLCLNode

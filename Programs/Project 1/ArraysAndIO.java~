@@ -1,0 +1,126 @@
+
+
+import javax.swing.*;
+import java.util.*;
+import java.io.*;
+
+class ArraysAndIO {
+    public static void main(String[] args) throws FileNotFoundException,
+                                                    IOException { 
+        // prompt for and read file name, then file size
+        System.out.print("Enter file name: ");
+        Scanner scanner = new Scanner(System.in);  // use this scanner to read file name
+        String str = scanner.next();
+        System.out.print("\nEnter size of file: ");
+        
+        int size = scanner.nextInt();
+        
+        Scanner sc = new Scanner(new File(str)); // use this scanner to read the text files
+    
+        // Declare the array and fill it with values from the disk file
+        int[] originalNumberArray = new int[size];
+        int[] ranNumSeq = new int[size];
+        int[] sortedNumberArray = new int[size];
+        
+        // Show user the original array
+        System.out.println("\nHere is the array of encrypted values: ");
+        
+        for (int i = 0; i < size; i++)
+          originalNumberArray[i] = sc.nextInt();
+        for (int i = 0; i < size; i++) {
+          System.out.print(" " + originalNumberArray[i]);
+          if (i%10==0)
+            System.out.println();
+        } // end of for loop
+                
+        // seed random number generator and find random range value
+        System.out.println("\n\nEnter the integer to seed the random "
+                             + "number generator: ");
+        
+        int setSeed = scanner.nextInt();
+        
+        Random rand = new Random(setSeed);
+        
+        System.out.println("\nEnter the range value integer: ");
+        
+        int randRange = scanner.nextInt();
+        
+        // Generate the random number sequence array into a new array
+        for (int r = 0; r < size; r++)
+          ranNumSeq[r] = rand.nextInt(randRange);
+        for (int i=0;i<size;i++)
+          originalNumberArray[i] = originalNumberArray[i] - ranNumSeq[i];
+        
+        // obtain the array of decrypted numbers
+        
+        // and show the original numbers to the user
+        for (int i = 0; i < size; i++)
+          System.out.print(originalNumberArray[i] + " ");
+        System.out.print("\n");
+        // Now print out the original message. I used a separate method called "printChars()
+        for (int i = 0; i < size; i++)
+          System.out.print((char) originalNumberArray[i]);
+        
+        // Now sort the array of original values
+                
+        // Show user the sorted array
+        System.out.print("\n\nHere are the original numeric values sorted:\n " + originalNumberArray[size-1]);
+        System.out.print("\n");
+        printArray(sortedNumberArray); 
+        
+        // Now write back the sorted original scores to a new disk file
+    
+        // Compute the average
+        //double average = findAvg(sortedNumberArray);
+    
+        // Show the user the average
+        //System.out.println("\n\nThe average of the original numeric values is " + average);
+
+        // Calculate the median
+        //double median = findMedian(sortedNumberArray);
+        
+        // Show the user the median
+        //System.out.println("\nThe median of the original numeric values is " + median);
+
+        // Show the user the standard deviation
+        //System.out.println("\nThe standard deviation of thr original numeric values is" + deviation);
+        
+    } // end main
+    
+    ///////////////////////////////////////////////////////////////
+    // Now come all the methods I use.  Note that they are ALL static, i.e. class, methods
+    public static void printArray(int[] array) {
+      for(int i = 0; i < ; i++) {
+        System.out.print(array[i]);
+      }
+    }
+    // here I declared and coded my method to print numeric values as you see them
+    // in the sample output of the assignment. I print 10 numbers to a line; I'd like
+    // you to do the same
+    
+    // here I declared and coded my method that I only use for printing out the 
+    // decrypted original message
+    
+    public static void selectionSort(int[] number) {
+        int minIndex, length, temp;
+        length = number.length;
+        for(int startIndex = 0; startIndex <= length-2; startIndex++) {
+            minIndex = startIndex;
+            for(int i = startIndex+1; i <= length-1; i++) {
+                if (number[i] < number[minIndex]) {
+                    minIndex = i;
+                }
+            }
+            temp =  number[startIndex];
+            number[startIndex] = number[minIndex];
+            number[minIndex] = temp;
+        }
+    }
+    
+    // declare and code your method for finding the average (mean) here
+    
+    // declare and code your method for finding the median here 
+    
+    // declare and code your method for finding the standard deviation here
+    
+}
