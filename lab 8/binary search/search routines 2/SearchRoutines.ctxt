@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=SearchRoutines()
+comment1.params=number\ searchValue
+comment1.target=int\ binarySearch(int[],\ int)
+comment1.text=\nSearches\ a\ specified\ int\ value\ in\ the\ array\ using\nthe\ binary\ search\ method.\n\n
+numComments=2

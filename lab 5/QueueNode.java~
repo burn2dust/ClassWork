@@ -1,0 +1,25 @@
+
+
+class QueueNode              // A singly linked circular list node
+{  
+   private char element;     // The number of the knight for this node
+   private QueueNode next;   // Reference to next node in SLCL
+  
+   // because there are no access labels (public, private or protected),
+   // access is limited to the package where these methods are declared
+   public QueueNode(char newElement, QueueNode nextval) {// SLCL node constructor 
+     element = newElement;  
+     next = nextval; 
+   } 
+
+  // Things you can do to a SLCL node
+  public QueueNode getNext() { // Return reference to next node
+      return next; 
+  }      
+  public char getElement() { // Return element's value
+      return element; 
+  }   
+  public void setNext(QueueNode nextVal) { // set this nodes next field
+      next = nextVal; 
+  }
+} // class SLCLNode

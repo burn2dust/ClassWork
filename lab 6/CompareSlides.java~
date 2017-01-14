@@ -1,0 +1,49 @@
+/**
+ * Auto Generated Java Class.
+ */
+import java.io.*;
+import java.util.*;
+
+public class CompareSlides {
+  public static void main(String[] args) { 
+    Scanner sc = new Scanner(System.in);
+    String canidate = null; // the string to be checked for being a palindrome
+    String more = null; // used to stop or continue processing
+    boolean same = false;
+    
+    System.out.println("\nProgram reads one line of input from the keyboard where");
+    System.out.println("the input is to consist of two parts separated by a");
+    System.out.println("colon. it will output the result of comparison based on:");
+    System.out.println("\n\tIf no colon was entered output an      N");
+    System.out.println("\tLeft side is longer than right side    L");
+    System.out.println("\tRight side is longer than left side    R");
+    System.out.println("\tSame length but different              D");
+    System.out.println("\tSame length and equal                  S");
+    System.out.println("\n\n");
+    
+    do {
+      AQueue queue = new AQueue(50);
+      System.out.println("Enter the text to be evaluated : ");
+      canidate = sc.nextLine();
+      int length = canidate.length();
+      int i = 0;
+      queue.enqueue('#');
+      char ch = canidate.charAt(i);
+      for ( i = 0 ; ch != ':' && i<length ; i++) {
+        ch = canidate.charAt(i);
+        queue.enqueue(ch);
+      }
+      if (i==length)
+        System.out.println('N');
+      else {
+        // your code goes here
+      }
+      System.out.println("\nWould you like to try again? Y/N : ");
+      more = sc.nextLine();
+      if (more == "Y" || more == "y")
+          same = false;
+      else if (more == "N" || more == "n")
+          same = true;
+   } while (same != true);
+  }
+} // end of CompareSlides Class

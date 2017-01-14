@@ -1,0 +1,108 @@
+
+class QueueList 
+{ // note the private data members of a QueueList are both QueueNodes
+  private QueueNode front;                
+  private QueueNode rear;
+  
+  public QueueList() {  // the QueueList constructor                  
+      front = null; 
+      rear = null;
+  }                          
+                       
+  public void enqueue(char newElement) {  
+     QueueNode newNode = new QueueNode(newElement, null);
+     if (isEmpty()) {
+         front = rear = newNode;
+     }
+     else {
+         rear.setNext(newNode);
+         rear = newNode;
+     }
+  }
+
+  public char dequeue() {                 // dequeue char from front of queue 
+    // make sure stack isn't empty
+    if(isEmpty()) {
+        System.out.println("Empty queue -- removed nothing from queue");
+        return '*';
+    }
+    char ch = front.getElement();
+    front = front.getNext();
+    return ch;
+  }
+  
+  public void clear() {
+      front = rear = null;
+  }
+
+  public boolean isEmpty() {          // Return true if empty queue
+     return front == null; 
+  }
+  
+  public boolean isFull() {
+      return false;
+  }
+  
+  public void showStructure ()
+  // Linked list implementation. Outputs the elements in a queue. If
+  // the empty, outputs "Queue is empty". 
+  {
+    QueueNode p;   // Iterates through the stack
+
+    if (isEmpty())
+        System.out.println("Queue is empty");
+    else
+    {
+       System.out.print("front ");
+       for ( p = front ; p != null ; p = p.getNext() )
+           System.out.print(p.getElement() + " ");
+       System.out.println("rear");
+    }
+  } // showStructure
+  public int length() 
+  {
+    QueueNode p;
+    int j = 0;
+    
+    for ( p = front ; p != null ; p = p.getNext() ) {
+        ++j;
+    } // end of for loop
+    System.out.println("Length: " + j);
+    return j;
+  } // end of method length
+  
+  public void putFront(char newElement)
+  {
+    QueueNode newNode = new QueueNode(newElement, null);
+    if (isEmpty()) {
+      front = newNode;
+      rear = newNode;
+    }
+    else {
+      newNode.setNext(front);
+      front = newNode;
+    }
+  } // end of method putFront
+  
+  public char getRear() {
+    QueueNode p, q;
+    char ch = '0';
+    if (isEmpty()) {
+      ch = '0';
+      System.out.println("Cannot get rear");
+    }
+    else {
+      ch = front.getElement();
+      p = front;
+      p = p.getNext();
+      q = front;
+      do {
+        do {
+          
+        } while (q.getNext() != null);
+      } while (p.getNext() == null);
+    }
+  return ch;
+  }
+} // class LStack
+

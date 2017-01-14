@@ -1,0 +1,65 @@
+
+class SearchRoutines {
+    /**
+     * A constant to represent unsuccessful search
+     */
+    public static final int NOT_FOUND = -1;
+
+    /**
+     * Default constructor
+     */
+    public SearchRoutines( )
+    {
+
+    }
+
+    /**
+     * Searches a specified int value in the array using
+     * the linear search method.
+     */
+    public int linearSearch ( int[] number, int searchValue ) {
+        int  loc   = 0;
+        while ( loc < number.length  &&
+                 number[loc] != searchValue ) {
+            loc++;
+            
+        }
+        if ( loc == number.length) { //Not found
+            return NOT_FOUND;
+        }
+        else {
+            return loc;              //Found, return the position
+        }
+    }
+    
+    public int linearSearchWithSentinel (int[] number, int searchValue) {
+      int loc = 0;
+      int length = 0;
+      length = number.length;
+      number[length+1] = searchValue;
+      while (loc < length + 1) {
+        loc++; 
+      }
+      if (loc <= number.length+1) { // not found
+        return NOT_FOUND;
+      }
+      else {
+        return loc;
+      }
+    }
+    
+    public int recursiveLinearSearch  (int[] number, int searchValue, int firstIndex) {
+      int i = number.length;
+      if (i==0) {
+        return NOT_FOUND;
+      }
+      else {
+        if (number[firstIndex] == searchValue)
+          return firstIndex;
+        else if (firstIndex > number.length)
+          return NOT_FOUND;
+        else
+          return recursiveLinearSearch(number, searchValue, firstIndex+1);
+      }
+    }
+}

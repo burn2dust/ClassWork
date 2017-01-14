@@ -1,0 +1,27 @@
+/*
+    Chapter 11 Sample Program: Test binary search.
+*/
+
+class TestBinarySearch {
+    private final static int EMPTY = -1;
+    public static void main (String[] args) {
+        int[ ] number   = new int[1000];
+        SearchRoutines mySearch = new SearchRoutines( );
+        int    position;
+        //Store elements into the array
+        //Note: the binary search requires a sorted list
+        for (int i = 0; i < number.length; i++ ) {
+            number[i] = i * 4;    //any number is fine
+                                  //as long as the array elements
+                                  //are in ascending order
+        }
+
+        //Test binary search
+        position = mySearch.binarySearch( number, 100 );
+        System.out.println( "Search 100; Index returned:   " + position );
+        position = mySearch.binarySearch( number, 40 );
+        System.out.println( "Search 40; Index returned:   " + position );
+        position = mySearch.binarySearch( number, 98765 );
+        System.out.println( "Search 98765; Index returned: " + position );
+    }
+}

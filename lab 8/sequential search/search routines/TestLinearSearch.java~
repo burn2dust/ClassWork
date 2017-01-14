@@ -1,0 +1,110 @@
+
+import java.util.*;  // for date, time 
+import java.text.*;  // for SimpleDateFormat
+class TestLinearSearch {
+    
+    private final static int EMPTY = -1;
+    public static void main (String[] args) {
+        Date now;
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss:SSS");
+        int[ ] number = new int[30];
+        SearchRoutines mySearch = new SearchRoutines( );
+        int    position;
+        Scanner sc = new Scanner(System.in);
+        
+        //Initialize the array elements to empty
+        for (int i = 0; i < number.length; i++ ) {
+            number[i] = EMPTY;
+        }
+
+        //Store numbers from 0 to 999999
+        //into an array of int at a random position
+        int num = 0, loc;
+        while (num < number.length) {
+            //Generate a random number between 0 and number.length-1
+            //and use this value as the index of the position to
+            //store the number. BE SURE YOU SEE WHAT IS HAPPENING HERE
+            loc   = (int) Math.floor( Math.random() * number.length );
+            while ( number[loc] != EMPTY ) {
+                //loc already has a number in it
+                //generate another location
+                loc = (int) Math.floor( Math.random() * number.length );
+            }
+            number[loc] = num;
+            num++;
+        }
+        System.out.println("Welcome to the Program. This program will");
+        System.out.println("search through a randomly generated list ");
+        System.out.println("of numbers and give when I found the     ");
+        System.out.println("number. The choices for searching are:   ");
+        System.out.println("1. Linear Search                         ");
+        System.out.println("2. Linear Search with Sentinel           ");
+        System.out.println("3. Recursive Linear Search\n             ");
+        System.out.println("Numbered choice? :\n                     ");
+        
+        int cmd = sc.nextInt();
+        
+        switch (cmd) {
+        
+      case 1 :
+                  
+        //Test linear search
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        position = mySearch.linearSearch( number, 435 );
+        System.out.println( "Search 435; Index returned:   " + position ); 
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now)); 
+        position = mySearch.linearSearch( number,23 );
+        System.out.println( "Search 23; Index returned:   " + position );
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        position = mySearch.linearSearch( number, 1198765 );
+        System.out.println( "Search 1198765; Index returned: " + position );
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        break;
+        
+      case 2 :
+        
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        position = mySearch.linearSearchWithSentinel( number, 435 );
+        System.out.println( "Search 435; Index returned:   " + position ); 
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now)); 
+        position = mySearch.linearSearchWithSentinel( number,23 );
+        System.out.println( "Search 23; Index returned:   " + position );
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        position = mySearch.linearSearchWithSentinel( number, 1198765 );
+        System.out.println( "Search 1198765; Index returned: " + position );
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        break;
+        
+      case 3 :
+        
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        position = mySearch.recursiveLinearSearch( number, 435, 0 );
+        System.out.println( "Search 435; Index returned:   " + position ); 
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now)); 
+        position = mySearch.recursiveLinearSearch( number, 23, 0);
+        System.out.println( "Search 23; Index returned:   " + position );
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        position = mySearch.recursiveLinearSearch( number, 1198765, 0 );
+        System.out.println( "Search 1198765; Index returned: " + position );
+        now = new Date();
+        System.out.println("current time is " + sdf.format(now));
+        break;
+        
+      default :
+        
+        System.out.println("You entered something that was not");
+        System.out.println("between 1 and 3.                  ");
+        }
+    }
+}

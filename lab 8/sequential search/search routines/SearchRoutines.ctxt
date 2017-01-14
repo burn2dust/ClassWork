@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=SearchRoutines()
+comment0.text=\nDefault\ constructor\n\n
+comment1.params=number\ searchValue
+comment1.target=int\ linearSearch(int[],\ int)
+comment1.text=\nSearches\ a\ specified\ int\ value\ in\ the\ array\ using\nthe\ linear\ search\ method.\n\n
+numComments=2

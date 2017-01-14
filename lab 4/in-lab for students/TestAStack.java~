@@ -1,0 +1,69 @@
+//--------------------------------------------------------------------
+//  In-lab 4  A postfix evaluator
+//--------------------------------------------------------------------
+
+import java.util.*;
+// Driver class for Stack implementation tests
+class TestAStack
+{
+    // Main routine for Stack implementation tests
+    public static void main(String args[]) 
+    {
+        char ch = '0';    // operand or operator
+        String charStr;
+        double operand1 = 0,
+               operand2 = 0,
+               opResult = 0;
+        
+        do {
+            AStack resultStack = new AStack(20);         
+            Scanner sc;
+            sc = new Scanner(System.in);
+
+            System.out.println();
+            System.out.print("Enter expression in postfix form ($ to quit): ");
+            charStr = sc.next();
+            if(charStr.length() < 2) {
+              System.out.println(charStr);
+            }
+            for(int i= 0; i < charStr.length(); i++) {
+              ch = charStr.charAt(i);
+                
+              if(Character.isDigit(ch)) {
+                operand1 = ch - '0';
+                resultStack.push(operand1);
+                
+              }
+              else {
+                if (charStr.length() < 1) {
+                operand1 = resultStack.pop();
+                operand2 = resultStack.pop();
+                }
+                switch (ch) {
+                  case '+' :
+                    opResult = operand2 + operand1;
+                    resultStack.push(opResult);
+                    break;
+                  case '-' :
+                    opResult = operand2 - operand1;
+                    resultStack.push(opResult);
+                    break;
+                  case '*' :
+                    opResult = operand2 * operand1;
+                    resultStack.push(opResult);
+                    break;
+                  case '/' :
+                    opResult = operand2 / operand1;
+                    resultStack.push(opResult);
+                    break;
+                  default :
+                    ch = '$';
+                    System.out.println("Exiting Program\n  Bye Bye!!");
+                }
+              }
+            }
+            System.out.println(opResult);
+        } while (ch != '$'); // end do-while
+    } // end main
+ } // end class
+                    
